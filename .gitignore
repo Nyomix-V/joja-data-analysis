@@ -1,0 +1,26 @@
+# --- Donnees brutes ---
+# Les CSV sources pesent ~660 Mo : ils ne sont pas versionnes.
+# Voir README.md pour la procedure de recuperation.
+*.csv
+!requirements.txt
+
+# --- Environnement virtuel ---
+.venv/
+venv/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pkl
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# --- Archives ---
+_archives/
+*.zip
+
+# --- Systeme ---
+Thumbs.db
+.DS_Store
