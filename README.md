@@ -74,7 +74,7 @@ mémoire), contrôle d'intégrité, fusion en une table unique de 32,4 millions 
 grossir ; l'ordre d'ajout au panier trahit l'habitude ; les rayons diffèrent d'un facteur
 deux dans leur capacité à fidéliser ; le bio pèse trois fois son poids de catalogue ; deux
 clientèles se distinguent par leur créneau ; le week-end remplit les paniers ; la cadence
-de rachat appartient à la course et non au produit ; le rayon d'entrée n'est pas celui de
+de rachat est dictée par la course bien plus que par le produit ; le rayon d'entrée n'est pas celui de
 fidélité.
 
 **Un modèle prédictif** qui anticipe le contenu de la prochaine commande. Quatre modèles
