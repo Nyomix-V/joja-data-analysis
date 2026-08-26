@@ -35,6 +35,7 @@ connaissance du travail.
 |---|---|
 | `02_projet/analyse.ipynb` | **Livrable principal** — profilage, EDA, 8 constats, modèle prédictif |
 | `02_projet/analyse.html` | Le même notebook exécuté, lisible sans Python |
+| `02_projet/presentation.html` | Support de soutenance, 12 diapositives (flèches ← →) |
 | `02_projet/T-DAT-600_Joja.pdf` | Sujet du projet |
 | `01_bootstrap/bootstrap.ipynb` | Bootstrap préparatoire (encodage, quartet d'Anscombe, dataviz trompeuse) |
 | `00_kickoff/` | Slides d'introduction du module |

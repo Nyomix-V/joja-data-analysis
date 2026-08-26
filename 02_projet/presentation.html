@@ -1,0 +1,344 @@
+<title>L'habitude est le produit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#12151A; --card:#1A1F27; --line:#2A313B;
+  --fg:#EDF1F5; --dim:#96A0AD;
+  --acc:#E8A33D; --acc2:#5FB3A8; --ko:#D96A5B;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:"Source Sans 3",system-ui,sans-serif; font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+}
+#deck{height:100vh;position:relative}
+.s{
+  position:absolute; inset:0; display:none;
+  flex-direction:column; justify-content:center;
+  padding:clamp(2rem,6vw,5.5rem); max-width:1180px; margin:0 auto;
+}
+.s.on{display:flex; animation:in .38s ease both}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.s.on{animation:none}}
+
+.kick{
+  font-size:.74rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--acc); margin:0 0 1.1rem; font-weight:600;
+}
+h1{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif; font-weight:800;
+  font-size:clamp(2.4rem,6.4vw,4.6rem); line-height:1.02; letter-spacing:-.02em;
+  margin:0 0 1.6rem; text-wrap:balance;
+}
+h1 em{font-style:normal;color:var(--acc)}
+h2{
+  font-family:"Bricolage Grotesque",system-ui,sans-serif; font-weight:600;
+  font-size:clamp(1.6rem,3.4vw,2.5rem); line-height:1.12; letter-spacing:-.015em;
+  margin:0 0 1.5rem; text-wrap:balance;
+}
+h2.huge{font-size:clamp(5rem,17vw,11rem);line-height:.9;margin:0}
+h2.huge b{color:var(--acc);font-weight:800}
+.sub{font-size:clamp(1rem,1.7vw,1.28rem);color:var(--dim);max-width:44ch;margin:0}
+.sub em{color:var(--fg);font-style:normal}
+.lead{font-size:clamp(1.2rem,2.6vw,1.9rem);margin:.6rem 0 1.4rem}
+.lead em{color:var(--acc);font-style:normal}
+.note{
+  font-size:.98rem; color:var(--dim); max-width:70ch; margin:1.4rem 0 0;
+  border-left:2px solid var(--line); padding-left:1rem;
+}
+.note b{color:var(--fg);font-weight:600}
+.cover{justify-content:center}
+.end h1{font-size:clamp(2.6rem,7.5vw,5.4rem)}
+
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.nums div{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.2rem}
+.nums b{
+  display:block;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;
+  font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1;color:var(--acc);
+  font-variant-numeric:tabular-nums;
+}
+.nums span{display:block;margin-top:.4rem;font-size:.85rem;color:var(--dim)}
+.nums.small b{font-size:clamp(1.4rem,2.8vw,2rem);color:var(--acc2)}
+
+.chart{width:100%;height:auto;max-height:44vh;display:block}
+.g{stroke:var(--line);stroke-width:1}
+.l-acc{fill:none;stroke:var(--acc);stroke-width:2.6;stroke-linejoin:round}
+.l-ink{fill:none;stroke:var(--acc2);stroke-width:2.6;stroke-linejoin:round}
+.bar{fill:var(--acc)}
+.ax{fill:var(--dim);font-size:11px;font-family:"Source Sans 3",sans-serif}
+.ax.r{text-anchor:end}.ax.m{text-anchor:middle}
+.lab{font-size:13px;font-weight:600;font-family:"Source Sans 3",sans-serif}
+.lab.r{text-anchor:end}
+.lab.acc{fill:var(--acc)}.lab.ink{fill:var(--acc2)}.lab.muted{fill:var(--dim)}
+
+.rayons{display:flex;flex-direction:column;gap:.42rem}
+.ray{display:grid;grid-template-columns:15rem 1fr 4rem;align-items:center;gap:.9rem;font-size:.92rem}
+.ray-n{color:var(--dim)}
+.ray-b{background:var(--card);height:15px;border-radius:2px;overflow:hidden}
+.ray-b i{display:block;height:100%}
+.ray-b i.hi{background:var(--acc)}
+.ray-b i.lo{background:#4A5461}
+.ray-v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+@media(max-width:700px){.ray{grid-template-columns:9rem 1fr 3.4rem;font-size:.8rem}}
+
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
+.grid5 div{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1.1rem}
+.grid5 b{
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.9rem;
+  color:var(--acc);display:block;line-height:1;margin-bottom:.5rem;
+}
+.grid5 p{margin:0;font-size:.9rem;color:var(--dim)}
+.grid5 p b{display:inline;font-size:inherit;color:var(--fg);font-family:inherit;font-weight:600}
+
+.deci{list-style:none;counter-reset:d;padding:0;margin:0;display:flex;flex-direction:column;gap:1.1rem}
+.deci li{counter-increment:d;padding-left:3.4rem;position:relative}
+.deci li::before{
+  content:counter(d);position:absolute;left:0;top:-.1rem;
+  font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.9rem;
+  color:var(--acc);line-height:1;
+}
+.deci b{display:block;font-size:1.1rem;margin-bottom:.2rem}
+.deci span{color:var(--dim);font-size:.95rem}
+
+.biais{display:flex;flex-direction:column;gap:.55rem;max-width:34rem}
+.biais div{
+  display:flex;justify-content:space-between;align-items:baseline;
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.7rem 1.1rem;
+}
+.biais span{color:var(--dim)}
+.biais b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.4rem;font-variant-numeric:tabular-nums}
+.biais b.ok{color:var(--acc2)}.biais b.ko{color:var(--ko)}
+
+.lim{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.9rem;max-width:64ch}
+.lim li{padding-left:1.3rem;position:relative;color:var(--dim);font-size:1rem}
+.lim li::before{content:"—";position:absolute;left:0;color:var(--acc)}
+.lim b{color:var(--fg);font-weight:600}
+
+#bar{position:fixed;top:0;left:0;height:2px;background:var(--acc);transition:width .3s;z-index:9}
+#pg{
+  position:fixed;bottom:1.1rem;right:1.4rem;font-size:.78rem;color:var(--dim);
+  font-variant-numeric:tabular-nums;z-index:9;
+}
+#hint{position:fixed;bottom:1.1rem;left:1.4rem;font-size:.74rem;color:var(--line);z-index:9}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+</style>
+
+<div id="bar"></div>
+<div id="deck">
+<section class="s cover">
+  <p class="kick">T-DAT-600 · Data Visualization</p>
+  <h1>Ils ne vendent pas<br>des produits.<br><em>Ils vendent une habitude.</em></h1>
+  <p class="sub">Ce que 3,4 millions de paniers révèlent d'un service de livraison
+  de courses — et les trois décisions qui en découlent.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Le terrain</p>
+  <h2>Quatre ans de courses, cinq fichiers</h2>
+  <div class="nums">
+    <div><b>3,42 M</b><span>commandes</span></div>
+    <div><b>206 209</b><span>clients</span></div>
+    <div><b>32,4 M</b><span>lignes de produits</span></div>
+    <div><b>49 688</b><span>références</span></div>
+  </div>
+  <p class="note">Cinq tables reliées par des clés, fusionnées en une table unique après
+  contrôle d'intégrité référentielle. Typage compact : <b>1 Go au lieu de 3,4</b>.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Le chiffre qui oriente tout</p>
+  <h2 class="huge"><b>59 %</b></h2>
+  <p class="lead">des articles vendus sont des <em>rachats</em>.</p>
+  <p class="note">L'essentiel du chiffre d'affaires ne vient pas de la découverte,
+  mais de la répétition. Tout ce qui suit en découle.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Constat 1</p>
+  <h2>Le panier ne grossit jamais — il se fige</h2>
+  <svg viewBox="0 0 720 300" class="chart" role="img"
+ aria-label="Le panier reste a dix articles tandis que la part de rachats grimpe de 29 a 82 pour cent">
+<line x1="52" y1="260.0" x2="668" y2="260.0" class="g"/><text x="44" y="264.0" class="ax r">0%</text><line x1="52" y1="201.0" x2="668" y2="201.0" class="g"/><text x="44" y="205.0" class="ax r">25%</text><line x1="52" y1="142.0" x2="668" y2="142.0" class="g"/><text x="44" y="146.0" class="ax r">50%</text><line x1="52" y1="83.0" x2="668" y2="83.0" class="g"/><text x="44" y="87.0" class="ax r">75%</text><line x1="52" y1="24.0" x2="668" y2="24.0" class="g"/><text x="44" y="28.0" class="ax r">100%</text><text x="52.0" y="278" class="ax m">2</text><text x="154.7" y="278" class="ax m">10</text><text x="283.0" y="278" class="ax m">20</text><text x="411.3" y="278" class="ax m">30</text><text x="539.7" y="278" class="ax m">40</text><text x="668.0" y="278" class="ax m">50</text>
+<polyline points="52.0,192.0 64.8,164.4 77.7,147.4 90.5,135.9 103.3,127.4 116.2,120.3 129.0,115.1 141.8,110.4 154.7,106.6 167.5,103.3 180.3,99.8 193.2,97.4 206.0,94.6 218.8,92.7 231.7,90.3 244.5,89.1 257.3,87.7 270.2,85.6 283.0,84.2 295.8,83.2 308.7,82.1 321.5,80.9 334.3,79.9 347.2,79.5 360.0,78.8 372.8,77.6 385.7,76.9 398.5,75.7 411.3,75.4 424.2,75.4 437.0,74.5 449.8,73.3 462.7,73.1 475.5,72.9 488.3,71.2 501.2,72.1 514.0,70.7 526.8,71.0 539.7,71.0 552.5,70.0 565.3,69.3 578.2,68.6 591.0,68.6 603.8,69.3 616.7,68.6 629.5,68.1 642.3,68.1 655.2,67.2 668.0,67.2" class="l-acc"/>
+<polyline points="52.0,92.6 64.8,92.4 77.7,91.6 90.5,91.3 103.3,90.6 116.2,90.4 129.0,90.1 141.8,89.4 154.7,89.4 167.5,89.2 180.3,89.7 193.2,88.7 206.0,88.9 218.8,89.4 231.7,88.9 244.5,88.6 257.3,88.2 270.2,88.2 283.0,88.9 295.8,88.4 308.7,88.4 321.5,87.7 334.3,88.2 347.2,87.2 360.0,86.7 372.8,86.4 385.7,86.2 398.5,86.5 411.3,86.4 424.2,84.9 437.0,84.7 449.8,85.5 462.7,85.9 475.5,85.7 488.3,85.4 501.2,85.2 514.0,86.0 526.8,85.4 539.7,85.2 552.5,86.2 565.3,84.9 578.2,85.0 591.0,85.5 603.8,85.9 616.7,86.4 629.5,87.4 642.3,86.4 655.2,87.6 668.0,88.6" class="l-ink"/>
+<text x="668" y="54.5" class="lab acc r">part de rachats</text>
+<text x="668" y="72.7" class="lab ink r">articles par panier</text>
+<text x="360" y="294" class="ax m">numéro de commande du client</text>
+</svg>
+  <p class="note">De la 2ᵉ à la 50ᵉ commande, le panier reste à <b>dix articles</b>.
+  Mais la part de rachats passe de <b>29 % à 82 %</b>. Les clients n'achètent pas plus :
+  ils achètent toujours la même chose.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Constat 2</p>
+  <h2>L'ordre d'ajout au panier trahit l'habitude</h2>
+  <svg viewBox="0 0 720 260" class="chart" role="img"
+ aria-label="La part de rachats decroit de 67,8 pour cent en premiere position a 48 pour cent en vingtieme">
+<line x1="52" y1="220" x2="668" y2="220" class="g"/>
+<rect x="55.0" y="64.3" width="24.8" height="155.7" class="bar"/><rect x="85.8" y="65.4" width="24.8" height="154.6" class="bar"/><rect x="116.6" y="75.5" width="24.8" height="144.5" class="bar"/><rect x="147.4" y="87.3" width="24.8" height="132.7" class="bar"/><rect x="178.2" y="98.5" width="24.8" height="121.5" class="bar"/><rect x="209.0" y="108.0" width="24.8" height="112.0" class="bar"/><rect x="239.8" y="115.8" width="24.8" height="104.2" class="bar"/><rect x="270.6" y="123.1" width="24.8" height="96.9" class="bar"/><rect x="301.4" y="129.8" width="24.8" height="90.2" class="bar"/><rect x="332.2" y="135.4" width="24.8" height="84.6" class="bar"/><rect x="363.0" y="141.0" width="24.8" height="79.0" class="bar"/><rect x="393.8" y="145.5" width="24.8" height="74.5" class="bar"/><rect x="424.6" y="150.0" width="24.8" height="70.0" class="bar"/><rect x="455.4" y="155.0" width="24.8" height="65.0" class="bar"/><rect x="486.2" y="159.0" width="24.8" height="61.0" class="bar"/><rect x="517.0" y="162.3" width="24.8" height="57.7" class="bar"/><rect x="547.8" y="166.2" width="24.8" height="53.8" class="bar"/><rect x="578.6" y="169.0" width="24.8" height="51.0" class="bar"/><rect x="609.4" y="172.4" width="24.8" height="47.6" class="bar"/><rect x="640.2" y="175.2" width="24.8" height="44.8" class="bar"/><text x="67.4" y="238" class="ax m">1</text><text x="190.6" y="238" class="ax m">5</text><text x="344.6" y="238" class="ax m">10</text><text x="498.6" y="238" class="ax m">15</text><text x="652.6" y="238" class="ax m">20</text>
+<text x="52" y="28" class="lab acc">67,8 %</text>
+<text x="668" y="165.2" class="lab muted r">48,0 %</text>
+<text x="360" y="254" class="ax m">position de l'article dans le panier</text>
+</svg>
+  <p class="note">Le premier article déposé est racheté dans <b>67,8 %</b> des cas, le
+  vingtième dans <b>48 %</b>. Le début du panier, ce sont les courses automatiques ;
+  la fin, l'improvisation.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Constat 3</p>
+  <h2>Tous les rayons ne fabriquent pas de l'habitude</h2>
+  <div class="rayons"><div class="ray">
+  <span class="ray-n">Produits laitiers, œufs</span>
+  <span class="ray-b"><i style="width:96%" class="hi"></i></span>
+  <span class="ray-v">67,0 %</span></div><div class="ray">
+  <span class="ray-n">Boissons</span>
+  <span class="ray-b"><i style="width:93%" class="hi"></i></span>
+  <span class="ray-v">65,3 %</span></div><div class="ray">
+  <span class="ray-n">Fruits & légumes</span>
+  <span class="ray-b"><i style="width:93%" class="hi"></i></span>
+  <span class="ray-v">65,0 %</span></div><div class="ray">
+  <span class="ray-n">Boulangerie</span>
+  <span class="ray-b"><i style="width:90%" class="hi"></i></span>
+  <span class="ray-v">62,8 %</span></div><div class="ray">
+  <span class="ray-n">Traiteur</span>
+  <span class="ray-b"><i style="width:87%" class="hi"></i></span>
+  <span class="ray-v">60,8 %</span></div><div class="ray">
+  <span class="ray-n">Snacks</span>
+  <span class="ray-b"><i style="width:82%" class="lo"></i></span>
+  <span class="ray-v">57,4 %</span></div><div class="ray">
+  <span class="ray-n">Surgelés</span>
+  <span class="ray-b"><i style="width:77%" class="lo"></i></span>
+  <span class="ray-v">54,2 %</span></div><div class="ray">
+  <span class="ray-n">Épicerie sèche</span>
+  <span class="ray-b"><i style="width:66%" class="lo"></i></span>
+  <span class="ray-v">46,1 %</span></div><div class="ray">
+  <span class="ray-n">Conserves</span>
+  <span class="ray-b"><i style="width:65%" class="lo"></i></span>
+  <span class="ray-v">45,7 %</span></div><div class="ray">
+  <span class="ray-n">Entretien</span>
+  <span class="ray-b"><i style="width:57%" class="lo"></i></span>
+  <span class="ray-v">40,2 %</span></div><div class="ray">
+  <span class="ray-n">Épicerie salée</span>
+  <span class="ray-b"><i style="width:50%" class="lo"></i></span>
+  <span class="ray-v">34,7 %</span></div><div class="ray">
+  <span class="ray-n">Hygiène</span>
+  <span class="ray-b"><i style="width:46%" class="lo"></i></span>
+  <span class="ray-v">32,1 %</span></div></div>
+  <p class="note">Un facteur <b>deux</b> sépare les produits laitiers de l'hygiène.
+  Les mêmes indicateurs ne peuvent pas piloter les deux.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Constats 4 à 8</p>
+  <h2>Cinq autres régularités exploitables</h2>
+  <div class="grid5">
+    <div><b>×3</b><p>Le bio pèse trois fois son poids de catalogue : 10 % des références,
+    <b>31,6 %</b> des ventes, et 6,6 points de rachat en plus.</p></div>
+    <div><b>2 pics</b><p>Deux clientèles distinctes : le <b>lundi matin</b> et le
+    <b>dimanche après-midi</b>. Ce ne sont pas les mêmes courses.</p></div>
+    <div><b>+3</b><p>Le week-end remplit les paniers : <b>11 articles</b> le dimanche
+    contre 8 en milieu de semaine, avec une dispersion plus large.</p></div>
+    <div><b>7 j</b><p>Toutes les allées se rachètent au même rythme. La cadence appartient
+    à la <b>course</b>, pas au produit.</p></div>
+    <div><b>≠</b><p>Le rayon qui fait <b>entrer</b> n'est pas celui qui fait
+    <b>rester</b>. Deux missions, deux budgets.</p></div>
+  </div>
+</section>
+
+<section class="s">
+  <p class="kick">Ce qu'il faut décider</p>
+  <h2>Trois décisions, par rendement attendu</h2>
+  <ol class="deci">
+    <li><b>Concentrer l'effort sur les cinq premières commandes.</b>
+      <span>La routine se referme vite : dès la 10ᵉ commande, deux tiers du panier est
+      figé. C'est la seule fenêtre où un produit nouveau peut encore entrer.</span></li>
+    <li><b>Piloter les rayons sur leur capacité à fidéliser.</b>
+      <span>Le laitier se juge sur la régularité, l'hygiène sur la marge par commande.
+      Un objectif commun n'a pas de sens.</span></li>
+    <li><b>Relancer sur la course entière, jamais produit par produit.</b>
+      <span>Le client ne commande pas quand il manque de lait : il rachète du lait quand
+      il fait ses courses.</span></li>
+  </ol>
+</section>
+
+<section class="s">
+  <p class="kick">L'outil</p>
+  <h2>Prédire le contenu de la prochaine commande</h2>
+  <div class="nums small">
+    <div><b>0,830</b><span>ROC-AUC</span></div>
+    <div><b>0,43</b><span>F1 après réglage du seuil</span></div>
+    <div><b>50 %</b><span>des rachats détectés</span></div>
+    <div><b>5 500</b><span>clients scorés / seconde</span></div>
+  </div>
+  <p class="note">Quatre modèles comparés, découpe <b>par client</b> pour éviter toute
+  fuite, seuil optimisé sur un jeu de validation. Les trois modèles réels se tiennent
+  dans un mouchoir : le signal vient des <b>variables construites</b>, pas de
+  l'algorithme.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Ce qu'il faut savoir avant de l'utiliser</p>
+  <h2>Le modèle sert mal ceux qui comptent le plus</h2>
+  <div class="biais">
+    <div><span>Clients intensifs</span><b class="ok">0,861</b></div>
+    <div><span>Clients fidèles</span><b>0,835</b></div>
+    <div><span>Clients réguliers</span><b>0,802</b></div>
+    <div><span>Nouveaux clients</span><b class="ko">0,762</b></div>
+  </div>
+  <p class="note">Il s'appuie sur la récence — un nouveau client en offre peu. Or c'est
+  précisément sur eux que l'action a le plus de valeur. <b>Recommandation :</b> ne
+  l'activer qu'à partir de la 5ᵉ commande, et traiter les nouveaux par les produits
+  d'entrée identifiés au constat 8.</p>
+</section>
+
+<section class="s">
+  <p class="kick">Honnêteté intellectuelle</p>
+  <h2>Ce que ces données ne disent pas</h2>
+  <ul class="lim">
+    <li><b>Ni prix, ni marges.</b> Nous décrivons des comportements, jamais leur
+      rentabilité. Une recommandation de fidélisation peut porter sur un produit à
+      marge nulle.</li>
+    <li><b>Le délai est plafonné à 30 jours.</b> Un client absent depuis six mois est
+      indiscernable d'un client absent depuis un mois : toute analyse du décrochage est
+      hors de portée.</li>
+    <li><b>Aucune causalité.</b> Rien n'établit que le bio <em>cause</em> la fidélité —
+      il se peut que les clients fidèles achètent du bio.</li>
+    <li><b>Le modèle ne prédit que le retour</b> d'un produit déjà acheté, jamais une
+      découverte.</li>
+  </ul>
+</section>
+
+<section class="s cover end">
+  <h1>L'habitude<br>est le produit.</h1>
+  <p class="sub">La croissance ne viendra pas d'un panier plus gros — quinze années de
+  données montrent qu'il ne bouge pas. Elle viendra d'une habitude installée
+  <em>plus vite</em> et <em>plus large</em>.</p>
+</section>
+</div>
+<div id="pg"></div>
+<div id="hint">← → pour naviguer</div>
+
+<script>
+const sl = [...document.querySelectorAll('.s')];
+let i = 0;
+function show(n){
+  i = Math.max(0, Math.min(sl.length - 1, n));
+  sl.forEach((s, k) => s.classList.toggle('on', k === i));
+  document.getElementById('pg').textContent = (i + 1) + ' / ' + sl.length;
+  document.getElementById('bar').style.width = ((i + 1) / sl.length * 100) + '%';
+}
+addEventListener('keydown', e => {
+  if (['ArrowRight',' ','PageDown','Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+  if (['ArrowLeft','PageUp'].includes(e.key))                { e.preventDefault(); show(i - 1); }
+  if (e.key === 'Home') show(0);
+  if (e.key === 'End')  show(sl.length - 1);
+});
+addEventListener('click', e => { if (!e.target.closest('a')) show(i + (e.clientX > innerWidth * .32 ? 1 : -1)); });
+show(0);
+</script>
