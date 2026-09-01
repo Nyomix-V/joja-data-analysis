@@ -1,0 +1,12 @@
+# Fins de ligne normalisees pour le texte, jamais touchees pour le binaire.
+* text=auto
+
+# Binaires : toute conversion de fin de ligne les corromprait.
+*.pdf     binary
+*.pptx    binary
+*.png     binary
+*.jpg     binary
+*.zip     binary
+
+# Notebooks : diff lisible, pas de conversion
+*.ipynb   text eol=lf
