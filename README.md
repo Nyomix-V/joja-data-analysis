@@ -33,7 +33,7 @@ connaissance du travail.
 
 | Chemin | Description |
 |---|---|
-| `02_projet/analyse.ipynb` | **Livrable principal** — profilage, EDA, 8 constats, modèle prédictif |
+| `02_projet/analyse.ipynb` | **Livrable principal** — profilage, EDA, 9 constats, modèle prédictif |
 | `02_projet/analyse.html` | Le même notebook exécuté, lisible sans Python |
 | `02_projet/presentation.html` | Support de soutenance, 12 diapositives (flèches ← →) |
 | `02_projet/T-DAT-600_Joja.pdf` | Sujet du projet |
@@ -70,12 +70,14 @@ Le notebook suit un déroulé constant : **question → méthode → constat chi
 **Profilage et nettoyage** — types compacts imposés (division par trois de l'empreinte
 mémoire), contrôle d'intégrité, fusion en une table unique de 32,4 millions de lignes.
 
-**Huit constats**, chacun assorti d'une recommandation. Le panier se fige au lieu de
+**Neuf constats**, chacun assorti d'une recommandation. Le panier se fige au lieu de
 grossir ; l'ordre d'ajout au panier trahit l'habitude ; les rayons diffèrent d'un facteur
 deux dans leur capacité à fidéliser ; le bio pèse trois fois son poids de catalogue ; deux
 clientèles se distinguent par leur créneau ; le week-end remplit les paniers ; la cadence
 de rachat est dictée par la course bien plus que par le produit ; le rayon d'entrée n'est pas celui de
-fidélité.
+fidélité. Enfin, un **second mode d'achat** coexiste avec la routine : l'achat de
+recette, révélé par le lift des associations de produits et confirmé par les articles très
+vendus mais peu rachetés.
 
 **Un modèle prédictif** qui anticipe le contenu de la prochaine commande. Quatre modèles
 comparés, découpe par client pour éviter toute fuite, seuil de décision optimisé sur un

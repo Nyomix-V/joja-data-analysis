@@ -104,6 +104,16 @@ h2.huge b{color:var(--acc);font-weight:800}
 .deci b{display:block;font-size:1.1rem;margin-bottom:.2rem}
 .deci span{color:var(--dim);font-size:.95rem}
 
+.lift{display:flex;flex-direction:column;gap:.5rem;max-width:44rem}
+.lift div{
+  display:flex;justify-content:space-between;align-items:baseline;
+  background:var(--card);border:1px solid var(--line);border-radius:4px;padding:.65rem 1.1rem;
+}
+.lift span{color:var(--fg);font-size:.97rem}
+.lift i{color:var(--dim);font-style:normal;padding:0 .2rem}
+.lift b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.35rem;color:var(--acc);
+        font-variant-numeric:tabular-nums}
+
 .biais{display:flex;flex-direction:column;gap:.55rem;max-width:34rem}
 .biais div{
   display:flex;justify-content:space-between;align-items:baseline;
@@ -252,6 +262,23 @@ h2.huge b{color:var(--acc);font-weight:800}
 </section>
 
 <section class="s">
+  <p class="kick">Constat 9</p>
+  <h2>Un second mode d'achat : la recette</h2>
+  <div class="lift">
+    <div><span>Eau pétillante citron vert <i>+</i> pamplemousse</span><b>×12,1</b></div>
+    <div><span>Jalapeños <i>+</i> coriandre</span><b>×9,6</b></div>
+    <div><span>Poivrons orange <i>+</i> rouge</span><b>×7,7</b></div>
+    <div><span>Coriandre <i>+</i> oignon rouge</span><b>×7,0</b></div>
+    <div><span>Citrons verts <i>+</i> coriandre</span><b>×6,3</b></div>
+  </div>
+  <p class="note">Ces couples s'achètent jusqu'à <b>douze fois plus souvent</b> que le
+  hasard ne le voudrait. Ce ne sont pas les meilleures ventes : ce sont des
+  <b>ingrédients d'une même préparation</b>. Leur trace inverse existe aussi — thym,
+  concentré de tomate, huile d'olive : très achetés, rarement rachetés.
+  <b>Deux clientèles cohabitent dans le même client.</b></p>
+</section>
+
+<section class="s">
   <p class="kick">Ce qu'il faut décider</p>
   <h2>Trois décisions, par rendement attendu</h2>
   <ol class="deci">
@@ -264,6 +291,9 @@ h2.huge b{color:var(--acc);font-weight:800}
     <li><b>Relancer sur la course entière, jamais produit par produit.</b>
       <span>Le client ne commande pas quand il manque de lait : il rachète du lait quand
       il fait ses courses.</span></li>
+    <li><b>Suggérer des ingrédients complémentaires au panier.</b>
+      <span>Puisque le panier ne grossit jamais, la recette est le seul canal mesuré par
+      lequel un produit nouveau y entre.</span></li>
   </ol>
 </section>
 

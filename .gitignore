@@ -24,3 +24,6 @@ _archives/
 # --- Systeme ---
 Thumbs.db
 .DS_Store
+
+# --- Travail du binome, conserve hors livrable ---
+_comparaison/
