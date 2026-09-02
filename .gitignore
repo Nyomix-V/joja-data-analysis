@@ -27,3 +27,9 @@ Thumbs.db
 
 # --- Travail du binome, conserve hors livrable ---
 _comparaison/
+
+# --- Documents non evalues, conserves en local ---
+# Slides d introduction fournies par l ecole : pas notre travail.
+00_kickoff/
+# Memo de l orateur : document de preparation, destine a nous seuls.
+02_projet/memo_soutenance.pdf
