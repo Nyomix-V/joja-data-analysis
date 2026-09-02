@@ -35,7 +35,8 @@ connaissance du travail.
 |---|---|
 | `02_projet/analyse.ipynb` | **Livrable principal** — profilage, EDA, 9 constats, modèle prédictif |
 | `02_projet/analyse.html` | Le même notebook exécuté, lisible sans Python |
-| `02_projet/presentation.html` | Support de soutenance, 13 diapositives (flèches ← →) |
+| `02_projet/soutenance.html` | **Support de soutenance** — 18 diapositives, thème clair, mode présentateur (touche N) |
+| `02_projet/presentation.html` | Première version du support, thème sombre |
 | `02_projet/memo_soutenance.pdf` | Mémo de l'orateur : une page par graphique, chiffres et questions du jury |
 | `02_projet/T-DAT-600_Joja.pdf` | Sujet du projet |
 | `01_bootstrap/bootstrap.ipynb` | Bootstrap préparatoire (encodage, quartet d'Anscombe, dataviz trompeuse) |
