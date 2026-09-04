@@ -175,15 +175,15 @@ body.notes-on #pg{right:calc(min(30rem,34vw) + 1.2rem)}
   <p class="kick">Avec quoi nous avons travaillé</p>
   <h2>Quatre bibliothèques, un choix assumé pour chacune</h2>
   <div class="outils">
-    <div><b>pandas<i>3.0</i></b><p>Toute la manipulation. Le modèle <em>DataFrame</em> épouse le format tabulaire des CSV, et jointures comme regroupements y sont natifs, exécutés en C plutôt qu'en boucles Python. Polars irait plus vite ; pandas reste le standard qu'un relecteur sait lire.</p></div>
-    <div><b>NumPy<i>2.5</i></b><p>Les tableaux typés sur lesquels pandas repose lui-même. Nous nous en servons directement pour le calcul vectorisé — une opération sur 32 millions de valeurs d'un seul coup — et pour le tirage aléatoire à graine fixe qui rend l'exécution reproductible.</p></div>
-    <div><b>Matplotlib<i>3.11</i></b><p>Les dix graphiques. Seaborn serait plus flatteur en moins de lignes, Plotly ajouterait l'interactivité ; Matplotlib donne le contrôle sur <em>chaque</em> élément — indispensable quand il faut justifier chaque choix visuel et retirer tout ornement inutile.</p></div>
-    <div><b>scikit-learn<i>1.9</i></b><p>Le modèle prédictif. Découpe, algorithmes, métriques et importance des variables partagent la même interface <em>fit / predict</em> : comparer quatre modèles ne demande alors que d'en changer le nom.</p></div>
+    <div><b>pandas<i>3.0</i></b><p>Manipuler 32 millions de lignes. Jointures et regroupements natifs, exécutés en C. Polars irait plus vite ; pandas est le standard.</p></div>
+    <div><b>NumPy<i>2.5</i></b><p>Le calcul vectorisé sur lequel pandas repose. Et la graine aléatoire qui rend l'exécution reproductible.</p></div>
+    <div><b>Matplotlib<i>3.11</i></b><p>Les dix graphiques. Moins commode que Seaborn, mais le contrôle sur chaque élément — donc sur chaque ornement retiré.</p></div>
+    <div><b>scikit-learn<i>1.9</i></b><p>Le modèle prédictif. Une seule interface <em>fit / predict</em> : comparer quatre algorithmes ne change qu'un nom.</p></div>
   </div>
-  <p class="note">Versions figées dans <code>requirements.txt</code>. Les types compacts imposés à pandas — <em>int8</em>, <em>int16</em>, catégories — ramènent l'empreinte mémoire de 3,2 Go à 1,0 Go : c'est ce qui rend le projet exécutable sur une machine ordinaire, et non sur un serveur.</p>
-  <aside class="notes"><b>Avec quoi — 40 secondes.</b> Cette diapositive répond à une question que le
-jury posera de toute façon. Ne lisez pas les quatre cases : donnez la logique. « Chaque
-bibliothèque a été choisie <i>contre</i> une alternative, pas prise par défaut. »
+  <p class="note">Versions figées dans <code>requirements.txt</code>. Les types compacts imposés à pandas ramènent la mémoire de 3,2 Go à 1,0 Go.</p>
+  <aside class="notes"><b>Avec quoi — 40 secondes.</b> Ne lisez pas les quatre cases : donnez la
+logique. « Chaque bibliothèque a été choisie <i>contre</i> une alternative, pas prise par
+défaut. »
 <br><br><b>Le point à faire entendre :</b> Matplotlib plutôt que Seaborn est un choix
 coûteux — davantage de lignes de code — mais c'est lui qui nous a permis de retirer chaque
 ornement inutile. Sans ce contrôle, la promesse d'un graphique lisible ne tenait pas.
