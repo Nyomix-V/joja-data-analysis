@@ -35,7 +35,7 @@ connaissance du travail.
 |---|---|
 | `02_projet/analyse.ipynb` | **Livrable principal** — profilage, EDA, 9 constats, modèle prédictif |
 | `02_projet/analyse.html` | Le même notebook exécuté, lisible sans Python |
-| `02_projet/soutenance.pptx` | **Support de soutenance PowerPoint** — 15 diapositives, notes de l'orateur dans le volet commentaires |
+| `02_projet/soutenance.pptx` | **Support de soutenance PowerPoint** — 16 diapositives, notes de l'orateur dans le volet commentaires |
 | `02_projet/soutenance.html` | Le même support en HTML autonome, mode présentateur (touche N) |
 | `02_projet/T-DAT-600_Joja.pdf` | Sujet du projet |
 | `01_bootstrap/bootstrap.ipynb` | Bootstrap préparatoire (encodage, quartet d'Anscombe, dataviz trompeuse) |
@@ -94,4 +94,5 @@ minutes** et **1,5 Go de mémoire vive**.
 
 `pandas` pour la manipulation, `numpy` pour le calcul vectorisé, `matplotlib` pour les
 graphiques, `scikit-learn` pour la modélisation. La section 0 du notebook justifie chacun
-de ces choix face à ses alternatives.
+de ces choix face à ses alternatives — Polars, Seaborn, Plotly — et la troisième
+diapositive du support de soutenance en donne la version courte.

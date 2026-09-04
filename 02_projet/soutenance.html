@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Vendre l'habitude</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +78,14 @@ h2{
 }
 .nums span{display:block; margin-top:.35rem; font-size:.84rem; color:var(--gris)}
 .nums.small b{font-size:clamp(1.3rem,2.5vw,1.85rem)}
+
+.outils{display:grid; grid-template-columns:1fr 1fr; gap:.8rem}
+.outils div{background:var(--carte); border:1px solid var(--trait); border-radius:4px; padding:.8rem .95rem}
+.outils b{font-family:Archivo,sans-serif; font-weight:700; color:var(--acc); font-size:1.12rem}
+.outils i{font-style:normal; color:var(--gris); font-size:.78rem; font-weight:400; margin-left:.45rem; font-variant-numeric:tabular-nums}
+.outils p{margin:.3rem 0 0; font-size:.87rem; line-height:1.42; color:var(--gris)}
+.outils em{font-style:normal; color:var(--encre); font-weight:600}
+.outils code{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.9em}
 
 .deci{list-style:none; counter-reset:d; padding:0; margin:0; display:flex; flex-direction:column; gap:.9rem}
 .deci li{counter-increment:d; padding-left:3rem; position:relative}
@@ -160,6 +169,32 @@ body.notes-on #pg{right:calc(min(30rem,34vw) + 1.2rem)}
   n'ont par définition pas de précédente. Et 206 209 commandes sans produit sont les
   dernières de chaque client, retirées à l'origine comme jeu d'épreuve. Aucune n'est une
   erreur.</aside>
+</section>
+
+<section class="s">
+  <p class="kick">Avec quoi nous avons travaillé</p>
+  <h2>Quatre bibliothèques, un choix assumé pour chacune</h2>
+  <div class="outils">
+    <div><b>pandas<i>3.0</i></b><p>Toute la manipulation. Le modèle <em>DataFrame</em> épouse le format tabulaire des CSV, et jointures comme regroupements y sont natifs, exécutés en C plutôt qu'en boucles Python. Polars irait plus vite ; pandas reste le standard qu'un relecteur sait lire.</p></div>
+    <div><b>NumPy<i>2.5</i></b><p>Les tableaux typés sur lesquels pandas repose lui-même. Nous nous en servons directement pour le calcul vectorisé — une opération sur 32 millions de valeurs d'un seul coup — et pour le tirage aléatoire à graine fixe qui rend l'exécution reproductible.</p></div>
+    <div><b>Matplotlib<i>3.11</i></b><p>Les dix graphiques. Seaborn serait plus flatteur en moins de lignes, Plotly ajouterait l'interactivité ; Matplotlib donne le contrôle sur <em>chaque</em> élément — indispensable quand il faut justifier chaque choix visuel et retirer tout ornement inutile.</p></div>
+    <div><b>scikit-learn<i>1.9</i></b><p>Le modèle prédictif. Découpe, algorithmes, métriques et importance des variables partagent la même interface <em>fit / predict</em> : comparer quatre modèles ne demande alors que d'en changer le nom.</p></div>
+  </div>
+  <p class="note">Versions figées dans <code>requirements.txt</code>. Les types compacts imposés à pandas — <em>int8</em>, <em>int16</em>, catégories — ramènent l'empreinte mémoire de 3,2 Go à 1,0 Go : c'est ce qui rend le projet exécutable sur une machine ordinaire, et non sur un serveur.</p>
+  <aside class="notes"><b>Avec quoi — 40 secondes.</b> Cette diapositive répond à une question que le
+jury posera de toute façon. Ne lisez pas les quatre cases : donnez la logique. « Chaque
+bibliothèque a été choisie <i>contre</i> une alternative, pas prise par défaut. »
+<br><br><b>Le point à faire entendre :</b> Matplotlib plutôt que Seaborn est un choix
+coûteux — davantage de lignes de code — mais c'est lui qui nous a permis de retirer chaque
+ornement inutile. Sans ce contrôle, la promesse d'un graphique lisible ne tenait pas.
+<br><br><b>Le chiffre à citer :</b> 3,2 Go ramenés à 1,0 Go en imposant les types. Par
+défaut pandas met tout entier en <i>int64</i>, huit octets par valeur ; un jour de semaine
+en occupe un seul. Sur 32 millions de lignes, cet écart décide de la faisabilité.
+<br><br><b>Si on demande pourquoi pas Polars :</b> plus rapide, mais moins répandu. Ce code
+est fait pour être relu et repris — nous avons préféré le standard à la performance.
+<br><br><b>Si on demande pourquoi pas une base de données :</b> une fois typées, les cinq
+tables tiennent en mémoire. Un SGBD n'aurait rien apporté et aurait ajouté une dépendance
+à installer.</aside>
 </section>
 
 <section class="s focus">
