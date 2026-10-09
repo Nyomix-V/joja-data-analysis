@@ -37,7 +37,6 @@ connaissance du travail.
 | `02_projet/analyse.html` | Le même notebook exécuté, lisible sans Python |
 | `02_projet/soutenance.pptx` | **Support de soutenance PowerPoint** — 16 diapositives, notes de l'orateur dans le volet commentaires |
 | `02_projet/soutenance.html` | Le même support en HTML autonome, mode présentateur (touche N) |
-| `02_projet/T-DAT-600_Joja.pdf` | Sujet du projet |
 | `01_bootstrap/bootstrap.ipynb` | Bootstrap préparatoire (encodage, quartet d'Anscombe, dataviz trompeuse) |
 | `requirements.txt` | Dépendances figées |
 
